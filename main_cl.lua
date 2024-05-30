@@ -18,6 +18,7 @@ end
 local menuStatus = false
 local dispatchLocations = {}
 
+-- Örnek Dispatch Gönderme
 RegisterCommand('dispatch:test', function()
     functionData = {
         code = '11-71',
