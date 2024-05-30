@@ -21,7 +21,7 @@ function addDispatch(data) {
             <div class="flex">
                 <div id="counter" class="text-gray-300 text-sm w-fit p-1 rounded-lg top-1.5 left-2 relative">#${counter}</div>
                 <div id="code" class="bg-[#2b6c58] text-white text-[13px] w-fit py-0.5 px-2 h-fit rounded-3xl top-2 left-2 relative">${data.code}</div>
-                <div id="time" class="text-gray-300 text-xs py-1 px-2 ml-auto mt-[10px] mr-[4px]">3 dakika önce</div>
+                <div id="time" class="text-gray-300 text-xs py-1 px-2 ml-auto mt-[10px] mr-[4px]">şimdi</div>
             </div>
             <div id="dispatchPieces" data-uid="${data.id}" class="flex flex-wrap ml-3 mt-1">
             </div>
@@ -56,7 +56,7 @@ function addTemporaryDispatch(data) {
             <div class="flex">
                 <div id="counter2" class="text-gray-300 text-sm w-fit p-1 rounded-lg top-1.5 left-2 relative">#${counter}</div>
                 <div id="code2" class="bg-[#2b6c58] text-white text-[13px] w-fit py-0.5 px-2 h-fit rounded-3xl top-2 left-2 relative">${data.code}</div>
-                <div id="time2" class="text-gray-300 text-xs py-1 px-2 ml-auto mt-[10px] mr-[4px]">3 dakika önce</div>
+                <div id="time2" class="text-gray-300 text-xs py-1 px-2 ml-auto mt-[10px] mr-[4px]">şimdi</div>
             </div>
             <div id="dispatchPieces2" data-uid="${data.id}" class="flex flex-wrap ml-3 mt-1">
             </div>
