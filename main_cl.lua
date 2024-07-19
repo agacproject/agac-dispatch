@@ -36,20 +36,20 @@ RegisterCommand('dispatch:test', function()
             },
         }
     }
-    TriggerEvent('deniz-dispatch:dispatch', functionData, 'both')
+    TriggerEvent('agac-dispatch:dispatch', functionData, 'both')
 end)
 
-RegisterNetEvent('deniz-dispatch:dispatch', function(data, dtype)
+RegisterNetEvent('agac-dispatch:dispatch', function(data, dtype)
     if data ~= nil and dtype ~= nil then
         if teamCloud.Framework == "qb" or teamCloud.Framework == "oldqb" then
-            QBCore.Functions.TriggerCallback('deniz-dispatch:sv:sendNotify', function(result) end, data, dtype)
+            QBCore.Functions.TriggerCallback('agac-dispatch:sv:sendNotify', function(result) end, data, dtype)
         elseif teamCloud.Framework == 'esx' then
-            ESX.TriggerServerCallback('deniz-dispatch:sv:sendNotify', function(result) end, data, dtype)
+            ESX.TriggerServerCallback('agac-dispatch:sv:sendNotify', function(result) end, data, dtype)
         end
     end
 end)
 
-RegisterNetEvent('deniz-dispatch:cl:sendNotify', function(argsData)
+RegisterNetEvent('agac-dispatch:cl:sendNotify', function(argsData)
     PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
     locationData = {
         id = argsData.id,
@@ -139,7 +139,7 @@ Citizen.CreateThread(function()
                             },
                         }
                     }
-                    TriggerEvent('deniz-dispatch:dispatch', functionData, 'pd')
+                    TriggerEvent('agac-dispatch:dispatch', functionData, 'pd')
                     isBusy = false
                 end
             end
