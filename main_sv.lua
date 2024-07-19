@@ -32,35 +32,35 @@ function isAuthEMS(job)
 end
 
 if teamCloud.Framework == "qb" or teamCloud.Framework == "oldqb" then
-    QBCore.Functions.CreateCallback('deniz-dispatch:sv:sendNotify', function(source, cb, data, jobType)
+    QBCore.Functions.CreateCallback('agac-dispatch:sv:sendNotify', function(source, cb, data, jobType)
         for idx, id in pairs(QBCore.Functions.GetPlayers()) do
             local xPlayer = QBCore.Functions.GetPlayer(id)
             if jobType == 'pd' and isAuthPD(xPlayer.PlayerData.job.name) then
-                TriggerClientEvent('deniz-dispatch:cl:sendNotify', xPlayer.PlayerData.source, data)
-                TriggerClientEvent("deniz-dispatch:createBlip", xPlayer.PlayerData.source, data.blipName, data.location)
+                TriggerClientEvent('agac-dispatch:cl:sendNotify', xPlayer.PlayerData.source, data)
+                TriggerClientEvent("agac-dispatch:createBlip", xPlayer.PlayerData.source, data.blipName, data.location)
             elseif jobType == 'ems' and isAuthEMS(xPlayer.PlayerData.job.name) then
-                TriggerClientEvent('deniz-dispatch:cl:sendNotify', xPlayer.PlayerData.source, data)
-                TriggerClientEvent("deniz-dispatch:createBlip", xPlayer.PlayerData.source, data.blipName, data.location)
+                TriggerClientEvent('agac-dispatch:cl:sendNotify', xPlayer.PlayerData.source, data)
+                TriggerClientEvent("agac-dispatch:createBlip", xPlayer.PlayerData.source, data.blipName, data.location)
             elseif jobType == 'both' and isAuthPD(xPlayer.PlayerData.job.name) or isAuthEMS(xPlayer.PlayerData.job.name) then
-                TriggerClientEvent('deniz-dispatch:cl:sendNotify', xPlayer.PlayerData.source, data)
-                TriggerClientEvent("deniz-dispatch:createBlip", xPlayer.PlayerData.source, data.blipName, data.location)
+                TriggerClientEvent('agac-dispatch:cl:sendNotify', xPlayer.PlayerData.source, data)
+                TriggerClientEvent("agac-dispatch:createBlip", xPlayer.PlayerData.source, data.blipName, data.location)
             end
         end
         cb(true)
     end)
 elseif teamCloud.Framework == 'esx' then
-    ESX.RegisterServerCallback('deniz-dispatch:sv:sendNotify', function(source, cb, data, jobType)
+    ESX.RegisterServerCallback('agac-dispatch:sv:sendNotify', function(source, cb, data, jobType)
         for idx, id in pairs(ESX.GetPlayers()) do
             local xPlayer = ESX.GetPlayerFromId(id)
             if jobType == 'pd' and isAuthPD(xPlayer.job.name) then
-                TriggerClientEvent('deniz-dispatch:cl:sendNotify', xPlayer.source, data)
-                TriggerClientEvent("deniz-dispatch:createBlip", xPlayer.source, data.blipName, data.location)
+                TriggerClientEvent('agac-dispatch:cl:sendNotify', xPlayer.source, data)
+                TriggerClientEvent("agac-dispatch:createBlip", xPlayer.source, data.blipName, data.location)
             elseif jobType == 'ems' and isAuthEMS(xPlayer.job.name) then
-                TriggerClientEvent('deniz-dispatch:cl:sendNotify', xPlayer.source, data)
-                TriggerClientEvent("deniz-dispatch:createBlip", xPlayer.source, data.blipName, data.location)
+                TriggerClientEvent('agac-dispatch:cl:sendNotify', xPlayer.source, data)
+                TriggerClientEvent("agac-dispatch:createBlip", xPlayer.source, data.blipName, data.location)
             elseif jobType == 'both' and isAuthPD(xPlayer.job.name) or isAuthEMS(xPlayer.job.name) then
-                TriggerClientEvent('deniz-dispatch:cl:sendNotify', xPlayer.source, data)
-                TriggerClientEvent("deniz-dispatch:createBlip", xPlayer.source, data.blipName, data.location)
+                TriggerClientEvent('agac-dispatch:cl:sendNotify', xPlayer.source, data)
+                TriggerClientEvent("agac-dispatch:createBlip", xPlayer.source, data.blipName, data.location)
             end
         end
         cb(true)
