@@ -1,4 +1,4 @@
-RegisterNetEvent("deniz-dispatch:createBlip", function(type, coords)
+RegisterNetEvent("agac-dispatch:createBlip", function(type, coords)
     if type == "gunshot" then
         local alpha = 477
         local Blip = AddBlipForCoord(coords)
