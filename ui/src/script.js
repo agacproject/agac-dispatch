@@ -80,12 +80,12 @@ $(document).keyup(function(e) {
     if (e.key === "Escape") {
         $('#dispatchBody2').removeClass('block').addClass('hidden');
         $('#dispatchBody1').removeClass('hidden').addClass('block');
-        $.post('https://deniz-dispatch/dispatch:nui:closeESC');
+        $.post('https://agac-dispatch/dispatch:nui:closeESC');
    }
 });
 
 function SetWaypoint(id) {
-    $.post('https://deniz-dispatch/dispatch:nui:setWaypoint', JSON.stringify({
+    $.post('https://agac-dispatch/dispatch:nui:setWaypoint', JSON.stringify({
         id: id,
     }));
 }
