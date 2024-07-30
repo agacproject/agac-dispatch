@@ -84,7 +84,7 @@ function getStreetIndex()
     else playerStreetsLocation = area end
     return playerStreetsLocation
 end
-exports('GetStreetIndex', GetStreetIndex)
+exports('getStreetIndex', getStreetIndex)
 
 RegisterKeyMapping('+dispatchMenu', 'Dispatch Menu (PD)', 'keyboard', teamCloud.DispatchMenuKey)
 RegisterCommand('+dispatchMenu', function()
