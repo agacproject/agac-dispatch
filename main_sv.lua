@@ -66,3 +66,9 @@ elseif teamCloud.Framework == 'esx' then
         cb(true)
     end)
 end
+
+if teamCloud.Framework == "qb" then
+    QBCore.Commands.Add("kod", "Yardım çağrısı için kod gönder.", {{name="kod", help="Kod seviyesi"}}, false, function(source, args)
+        TriggerClientEvent("agac-dispatch:sendHelpRequest", source, args[1])
+    end)
+end
