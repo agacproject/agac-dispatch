@@ -146,3 +146,52 @@ Citizen.CreateThread(function()
         end
     end
 end)
+
+if teamCloud.Framework == 'qb' then
+	local cooldown = false
+	RegisterNetEvent('agac-dispatch:sendHelpRequest')
+	AddEventHandler('agac-dispatch:sendHelpRequest', function(KodSvy)
+	    local PlayerData = QBCore.Functions.GetPlayerData()
+	    if PlayerData.job and (PlayerData.job.name == "police" or PlayerData.job.name == "ambulance") then
+	        if not cooldown then
+	            if exports.ox_inventory:Search('count', 'gps') >= 1 then
+	                if not KodSvy then
+	                    QBCore.Functions.Notify('Lütfen kod seviyesini belirtin: 1, 2, 3, 99')
+	                else
+	                    local functionData = {
+	                        code = 'Kod ' .. KodSvy,
+	                        id = math.random(1, 9)..math.random(1, 9)..math.random(1, 9)..math.random(1, 9)..math.random(1, 9)..math.random(1, 9)..'DENIZ',
+	                        location = GetEntityCoords(PlayerPedId()),
+	                        blipName = 'dead1',
+	                        pieces = {
+	                            {
+	                                header = 'Olay Bilgisi',
+	                                text = 'Memur yardım istiyor!',
+	                            },
+				    {
+	                                header = 'Memur',
+	                                text = PlayerData.charinfo.firstname .. " " .. PlayerData.charinfo.lastname,
+	                            },				
+	                            {
+	                                header = 'Konum',
+	                                text = getStreetIndex(),
+	                            },
+	                        }
+	                    }
+	
+	                    TriggerEvent('agac-dispatch:dispatch', functionData, 'both')
+	
+	                    cooldown = true
+	                    Wait(10000) 
+	                    -- Wait((1000 * 10) * 1)
+	                    cooldown = false
+	                end
+	            else
+	                QBCore.Functions.Notify('Üzerinde GPS Olmadığı İçin Kod Gönderemiyorsun')
+	            end
+	        else
+	            QBCore.Functions.Notify('10 saniyede bir gönderebilirsin')
+	        end
+	    end
+	end)
+end
