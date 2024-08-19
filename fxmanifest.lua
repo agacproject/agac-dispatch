@@ -15,6 +15,7 @@ files{
 }
 
 client_script 'main_cl.lua'
+client_script 'main_editable.lua'
 server_script 'main_sv.lua'
 shared_script 'main_sh.lua'
 
